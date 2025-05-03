@@ -40,8 +40,8 @@ class Solution {
                     
                     if (op == '+') {
                         results[0] = dp[i][k][0] + dp[k+1][j][0];
-                        results[1] = dp[i][k][0] + dp[k+1][j][1];
-                        results[2] = dp[i][k][1] + dp[k+1][j][0];
+                        // results[1] = dp[i][k][0] + dp[k+1][j][1];
+                        // results[2] = dp[i][k][1] + dp[k+1][j][0];
                         results[3] = dp[i][k][1] + dp[k+1][j][1];
                     } else {  // op == '-'
                         results[0] = dp[i][k][0] - dp[k+1][j][1];
