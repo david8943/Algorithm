@@ -6,24 +6,19 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
+        // -100만부터 100만
+
         int n = Integer.parseInt(br.readLine());
-
-        int[] arr = new int[2000001];
-
-        // -1000000 이면 0
+        boolean[] arr = new boolean[2000001];
 
         for(int i = 0; i < n; i++){
-            int temp = Integer.parseInt(br.readLine());
-            arr[temp+1000000]++;
+            int num = Integer.parseInt(br.readLine());
+            arr[num+1000000] = true;
         }
 
         for(int i = 0; i < 2000001; i++){
-            if(arr[i] > 0){
-                for(int j=0;j<arr[i];j++) {
-                    sb.append(i-1000000).append("\n");
-                }
-            }
+            if(arr[i]) sb.append(i-1000000).append('\n');
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }
