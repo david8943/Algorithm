@@ -14,18 +14,16 @@ public class Main {
        }
 
        int[] dp = new int[k+1];
-       Arrays.fill(dp, Integer.MAX_VALUE);
+       Arrays.fill(dp, 1000000);
        dp[0] = 0;
 
-       for(int i = 0; i < n; i++) {
-           for(int j = 0; j <= k; j++) {
-               if(j-coins[i]>=0 && dp[j-coins[i]] != Integer.MAX_VALUE) {
-                   dp[j] = Math.min(dp[j], dp[j-coins[i]]+1);
-               }
+       for(int coin:coins) {
+           for(int j = coin; j <= k; j++) {
+               dp[j] = Math.min(dp[j], dp[j-coin]+1);
            }
        }
 
-       if(dp[k]!=Integer.MAX_VALUE) {
+       if(dp[k]!=1000000) {
            System.out.println(dp[k]);
        } else {
            System.out.println("-1");
